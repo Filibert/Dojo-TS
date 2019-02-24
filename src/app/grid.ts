@@ -4,9 +4,7 @@ import { Printable } from './@types/Printable.d';
 
 export class Grid implements Printable{
     print(): void {
-        this.cells.sort((a, b): number => {
-            return a.coordinates.x > b.coordinates.x ? 1 : -1;
-        });
+       
         this.cells.sort((a, b): number => {
             return a.coordinates.y > b.coordinates.y ? 1 : -1;
         });
@@ -15,6 +13,9 @@ export class Grid implements Printable{
         for (let i = 0; i < this.dimenson.y; i++){
             const start = this.dimenson.x * i;
             const end = this.dimenson.x * i + this.dimenson.x;
+            this.cells.sort((a, b): number => {
+                return a.coordinates.x > b.coordinates.x ? 1 : -1;
+            });
             console.log(stringsCells.slice(start, end))
         }
     }

@@ -13,12 +13,12 @@ export const ShouldBorn = (neighboors: Cell[]): boolean => {
     return aliveNeighboors.length == 3;
 };
 
-// export const giveBirthToACell = (cell: Cell): Cell => {
-//     return {
-//         ...cell,
-//         isAlive: true
-//     };
-// };
+export const giveBirthToACell = (cell: Cell): Cell => {
+    return {
+        ...cell,
+        isAlive: true
+    };
+};
 
 export const isAdjacent = (value: number, valueCompare: number): boolean => {
     return valueCompare === value + 1

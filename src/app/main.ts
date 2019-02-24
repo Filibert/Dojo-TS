@@ -20,7 +20,7 @@ enum InterstingNeighboorHood {
 
 function gameCycle(): void {
     let gameIsRunning: boolean = false;
-    let actualGameGrid: Grid= new Grid();
+    let actualGameGrid: Grid = new Grid();
     actualGameGrid.print();
 }
 gameCycle();
