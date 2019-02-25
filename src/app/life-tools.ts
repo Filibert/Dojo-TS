@@ -12,13 +12,6 @@ export const ShouldBorn = (neighboors: Cell[]): boolean => {
   return aliveNeighboors.length == 3;
 };
 
-// export const giveBirthToACell = (cell: Cell): Cell => {
-//     return {
-//         ...cell,
-//         isAlive: true
-//     };
-// };
-
 export const isAdjacent = (value: number, valueCompare: number): boolean => {
   return (
     valueCompare === value + 1 ||
@@ -49,9 +42,3 @@ const isInTheGrid = (
 ): boolean => {
   return pos.x > 0 && pos.x < dimension.x && pos.y > 0 && pos.y < dimension.y;
 };
-// export const killCell = (cell: Cell): Cell => {
-//     return {
-//         ...cell,
-//         isAlive: false
-//     };
-// };

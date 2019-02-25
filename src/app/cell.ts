@@ -1,12 +1,11 @@
 import { Grid } from "./grid";
-import { Processable } from "./@types/Processable.d";
-import { TwoDimensionalCoordinates } from "./@types/TwoDimensionalCoordinates";
+
 import { ShouldDie, getNeighboors, ShouldBorn } from "./life-tools";
 
-export class Cell implements Processable<Grid> {
-  coordinates: TwoDimensionalCoordinates;
+export class Cell implements Dojo.Processable<Grid> {
+  coordinates: Dojo.TwoDimensionalCoordinates;
   isAlive: boolean;
-  neigboorCoordinates: TwoDimensionalCoordinates[];
+  neigboorCoordinates: Dojo.TwoDimensionalCoordinates[];
 
   constructor(x: number, y: number, grid: Grid, neigboorCoordinates: TwoDimensionalCoordinates[]) {
     this.coordinates = {

@@ -1,7 +1,3 @@
-
-import { TwoDimensionalCoordinates } from './@types/TwoDimensionalCoordinates.d';
-import { ShouldDie, ShouldBorn, getNeighboors } from './life-tools';
-
 import * as readline from 'readline';
 import { Grid } from './grid';
 
