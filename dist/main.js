@@ -6,15 +6,23 @@ var rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
-var InterstingNeighboorHood;
-(function (InterstingNeighboorHood) {
-    InterstingNeighboorHood[InterstingNeighboorHood["TWO_NEIGBOORS"] = 2] = "TWO_NEIGBOORS";
-    InterstingNeighboorHood[InterstingNeighboorHood["THREE_NEIGBOORS"] = 3] = "THREE_NEIGBOORS";
-    InterstingNeighboorHood[InterstingNeighboorHood["WELL_ACCOMPAGNED"] = 3] = "WELL_ACCOMPAGNED";
-})(InterstingNeighboorHood || (InterstingNeighboorHood = {}));
 function gameCycle() {
     var gameIsRunning = false;
-    var actualGameGrid = new grid_1.Grid();
+    var actualGameGrid = new grid_1.Grid(5);
+    actualGameGrid.print();
+    console.log("--------");
+    actualGameGrid.cells = actualGameGrid.cells.map(function (cellRow) {
+        return cellRow.map(function (cell) {
+            return cell.processTurn(actualGameGrid);
+        });
+    });
+    actualGameGrid.print();
+    console.log("--------");
+    actualGameGrid.cells = actualGameGrid.cells.map(function (cellRow) {
+        return cellRow.map(function (cell) {
+            return cell.processTurn(actualGameGrid);
+        });
+    });
     actualGameGrid.print();
 }
 gameCycle();

@@ -1,31 +1,35 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var cell_1 = require("./cell");
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
 var Grid = /** @class */ (function () {
-    function Grid() {
+    function Grid(size) {
         this.cells = [];
-        this.dimenson = { x: 10, y: 10 };
-        for (var i = 0; i < 10; i++) {
-            for (var j = 0; j < 10; j++) {
-                var cell = new cell_1.Cell(i, j, this);
-                if (i >= 4 && j >= 6 && i <= 7 && j <= 7)
+        this.dimenson = { x: size, y: size };
+        for (var i = 0; i < size; i++) {
+            var cellRow = [];
+            for (var j = 0; j < size; j++) {
+                var cell = new cell_1.Cell(j, i, this, undefined);
+                if (getRandomInt(10) < 3)
                     cell.isAlive = true;
-                this.cells.push(cell);
+                cellRow.push(cell);
             }
+            this.cells.push(cellRow);
         }
     }
     Grid.prototype.print = function () {
         this.cells.sort(function (a, b) {
-            return a.coordinates.x > b.coordinates.x ? 1 : -1;
+            return a[0].coordinates.y > b[0].coordinates.y ? 1 : -1;
         });
-        this.cells.sort(function (a, b) {
-            return a.coordinates.y > b.coordinates.y ? 1 : -1;
+        this.cells.forEach(function (cellsRow) {
+            cellsRow.sort(function (a, b) {
+                return a.coordinates.x > b.coordinates.x ? 1 : -1;
+            });
         });
-        var stringsCells = this.cells.map(function (a) { return a.toString(); });
         for (var i = 0; i < this.dimenson.y; i++) {
-            var start = this.dimenson.x * i;
-            var end = this.dimenson.x * i + this.dimenson.x;
-            console.log(stringsCells.slice(start, end));
+            console.log(this.cells[i].map(function (a) { return a.toString(); }));
         }
     };
     return Grid;

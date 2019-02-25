@@ -7,7 +7,7 @@ export class Cell implements Dojo.Processable<Grid> {
   isAlive: boolean;
   neigboorCoordinates: Dojo.TwoDimensionalCoordinates[];
 
-  constructor(x: number, y: number, grid: Grid, neigboorCoordinates: TwoDimensionalCoordinates[]) {
+  constructor(x: number, y: number, grid: Grid, neigboorCoordinates: Dojo.TwoDimensionalCoordinates[]) {
     this.coordinates = {
       x: x,
       y: y
@@ -42,12 +42,13 @@ export class Cell implements Dojo.Processable<Grid> {
     } else {
       if (ShouldBorn(neighboorsCell)) {
         const cell =  new Cell(this.coordinates.x, this.coordinates.y, undefined, this.neigboorCoordinates);
-        cell.isAlive = false;
+        cell.isAlive = true;
         return cell;      
       }
       return this;
     }
   }
+
   toString(): string {
     if (this.isAlive) return "o";
     return "x";

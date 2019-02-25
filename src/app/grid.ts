@@ -1,6 +1,8 @@
 import { Cell } from './cell'
-import { TwoDimensionalCoordinates } from './@types/TwoDimensionalCoordinates';
 
+function getRandomInt(max: number) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
 export class Grid implements Dojo.Printable{
     print(): void {
        
@@ -17,14 +19,14 @@ export class Grid implements Dojo.Printable{
 
     }
     cells: Cell[][] = [];
-    dimenson: TwoDimensionalCoordinates;
-    constructor(){
-        this.dimenson = {x:5, y:5};
-        for(let i = 0; i < 5; i++){
+    dimenson: Dojo.TwoDimensionalCoordinates;
+    constructor(size : number){
+        this.dimenson = {x: size, y: size};
+        for(let i = 0; i < size; i++){
             const cellRow: Cell[] = []; 
-            for(let j = 0; j < 5; j++){
+            for(let j = 0; j < size; j++){
                 const cell = new Cell(j,i,this, undefined);
-                if(i>=1 && j>=3 && i <=4 && j <=5 )
+                if(getRandomInt(10) < 3)
                     cell.isAlive = true;
                 cellRow.push(cell)
             }

@@ -1,4 +1,3 @@
-import { TwoDimensionalCoordinates } from "./@types/TwoDimensionalCoordinates";
 import { Grid } from "./grid";
 import { Cell } from "./cell";
 
@@ -21,9 +20,9 @@ export const isAdjacent = (value: number, valueCompare: number): boolean => {
 };
 
 export const getNeighboors = (
-  pos: TwoDimensionalCoordinates,
+  pos: Dojo.TwoDimensionalCoordinates,
   grid: Grid
-): TwoDimensionalCoordinates[] => {
+): Dojo.TwoDimensionalCoordinates[] => {
   const neighboorsPos = [
     { x: pos.x, y: pos.y - 1 },
     { x: pos.x, y: pos.y + 1 },
@@ -37,8 +36,8 @@ export const getNeighboors = (
   return neighboorsPos.filter(pos => isInTheGrid(pos, grid.dimenson));
 };
 const isInTheGrid = (
-  pos: TwoDimensionalCoordinates,
-  dimension: TwoDimensionalCoordinates
+  pos: Dojo.TwoDimensionalCoordinates,
+  dimension: Dojo.TwoDimensionalCoordinates
 ): boolean => {
   return pos.x > 0 && pos.x < dimension.x && pos.y > 0 && pos.y < dimension.y;
 };

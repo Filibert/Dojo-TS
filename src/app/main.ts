@@ -7,14 +7,9 @@ let rl = readline.createInterface({
     output: process.stdout
   });
 
-enum InterstingNeighboorHood {
-    TWO_NEIGBOORS = 2,
-    THREE_NEIGBOORS = 3,
-    WELL_ACCOMPAGNED = TWO_NEIGBOORS | THREE_NEIGBOORS
-}
 function gameCycle(): void {
     let gameIsRunning: boolean = false;
-    let actualGameGrid: Grid = new Grid();
+    let actualGameGrid: Grid = new Grid(5);
     actualGameGrid.print();
     console.log("--------");
     actualGameGrid.cells = actualGameGrid.cells.map(cellRow => {
